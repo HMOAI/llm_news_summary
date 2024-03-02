@@ -50,13 +50,13 @@ def get_day_top_data(link_id, header_short_link_id):
         date = re.search(r"\d+-\d+-\d+", get_date(link_id)).group(0)
         date = time.strftime("%B %d, %Y", time.strptime(date, "%Y-%m-%d"))
     except:
-        print("Error in url date")
+        print("Error in url date: {}".format(day_url))
         date = 'No date found'
 
     try:
       day_headlines_list = get_aljazeera_headlines(link_id, header_short_link_id)
     except:
-      print("Error in url content:")
+      print("Error in url content: {}".format(day_url))
       return [], [], date
 
     # Generate LLM response
