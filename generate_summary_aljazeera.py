@@ -106,6 +106,11 @@ def get_output_from_file_and_write_to_file(input_file, output_file):
   with open(input_file, 'r') as file:
     ids_line = file.read().splitlines()
   ids = [tuple(item.split(' ')) for item in ids_line]
+  ids = []
+  for link_id, header_short_link_id in ids:
+    header_short_link_id = header_short_link_id[15:21]
+    link_id = re.search(r"((?:[\w\d]+\-)+[\w\d]+)", link_id).group(0)
+    ids.append((link_id, header_short_link_id))
   write_output_to_file(ids, output_file)
 
 def get_output_from_file_and_return_as_json(input_file):
