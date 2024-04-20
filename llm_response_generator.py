@@ -1,7 +1,7 @@
 import google.generativeai as genai
 import time
 
-genai.configure(api_key='AIzaSyBfKTD9FkqBQ2aFMXatWoBrGdYFV365hCo')
+genai.configure(api_key='AIzaSyAyeDCmJi-GtxLsqN5-qfrWKKvLqRFq3YU')
 
 # Set up the model settings
 generation_config = {
